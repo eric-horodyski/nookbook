@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct NookbookApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @StateObject var viewRouter = ViewRouter()
+  
+  init() {
+    FirebaseApp.configure()
+  }
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView().environmentObject(viewRouter)
     }
+  }
 }

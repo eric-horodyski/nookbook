@@ -11,6 +11,13 @@
 		07E64794277391D50050B585 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E64793277391D50050B585 /* ContentView.swift */; };
 		07E64796277391D70050B585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07E64795277391D70050B585 /* Assets.xcassets */; };
 		07E64799277391D70050B585 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07E64798277391D70050B585 /* Preview Assets.xcassets */; };
+		07E647A127751EFC0050B585 /* LoginComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E647A027751EFC0050B585 /* LoginComponents.swift */; };
+		07E647A32775207B0050B585 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E647A22775207B0050B585 /* SignInView.swift */; };
+		07E647A5277520860050B585 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E647A4277520860050B585 /* SignUpView.swift */; };
+		07E647A7277521250050B585 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E647A6277521250050B585 /* ViewRouter.swift */; };
+		07E647AA277526600050B585 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E647A9277526600050B585 /* TabsView.swift */; };
+		07E647AC2776D6F30050B585 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07E647AB2776D6F30050B585 /* GoogleService-Info.plist */; };
+		07E647AF2776D7B40050B585 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 07E647AE2776D7B40050B585 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,12 @@
 		07E64793277391D50050B585 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07E64795277391D70050B585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07E64798277391D70050B585 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		07E647A027751EFC0050B585 /* LoginComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponents.swift; sourceTree = "<group>"; };
+		07E647A22775207B0050B585 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		07E647A4277520860050B585 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		07E647A6277521250050B585 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		07E647A9277526600050B585 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		07E647AB2776D6F30050B585 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E647AF2776D7B40050B585 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +65,13 @@
 		07E64790277391D50050B585 /* Nookbook */ = {
 			isa = PBXGroup;
 			children = (
+				07E647AB2776D6F30050B585 /* GoogleService-Info.plist */,
+				07E647A82775264C0050B585 /* tabs */,
+				07E6479F27751ED70050B585 /* login */,
 				07E64791277391D50050B585 /* NookbookApp.swift */,
 				07E64793277391D50050B585 /* ContentView.swift */,
+				07E647A6277521250050B585 /* ViewRouter.swift */,
+				07E647A9277526600050B585 /* TabsView.swift */,
 				07E64795277391D70050B585 /* Assets.xcassets */,
 				07E64797277391D70050B585 /* Preview Content */,
 			);
@@ -65,6 +84,23 @@
 				07E64798277391D70050B585 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		07E6479F27751ED70050B585 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				07E647A027751EFC0050B585 /* LoginComponents.swift */,
+				07E647A22775207B0050B585 /* SignInView.swift */,
+				07E647A4277520860050B585 /* SignUpView.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		07E647A82775264C0050B585 /* tabs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tabs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +119,9 @@
 			dependencies = (
 			);
 			name = Nookbook;
+			packageProductDependencies = (
+				07E647AE2776D7B40050B585 /* FirebaseAuth */,
+			);
 			productName = Nookbook;
 			productReference = 07E6478E277391D50050B585 /* Nookbook.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +150,9 @@
 				Base,
 			);
 			mainGroup = 07E64785277391D50050B585;
+			packageReferences = (
+				07E647AD2776D7B40050B585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 07E6478F277391D50050B585 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +169,7 @@
 			files = (
 				07E64799277391D70050B585 /* Preview Assets.xcassets in Resources */,
 				07E64796277391D70050B585 /* Assets.xcassets in Resources */,
+				07E647AC2776D6F30050B585 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +181,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				07E64794277391D50050B585 /* ContentView.swift in Sources */,
+				07E647AA277526600050B585 /* TabsView.swift in Sources */,
+				07E647A5277520860050B585 /* SignUpView.swift in Sources */,
+				07E647A127751EFC0050B585 /* LoginComponents.swift in Sources */,
+				07E647A7277521250050B585 /* ViewRouter.swift in Sources */,
+				07E647A32775207B0050B585 /* SignInView.swift in Sources */,
 				07E64792277391D50050B585 /* NookbookApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +389,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		07E647AD2776D7B40050B585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07E647AE2776D7B40050B585 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07E647AD2776D7B40050B585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 07E64786277391D50050B585 /* Project object */;
 }
