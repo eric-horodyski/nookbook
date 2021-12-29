@@ -8,27 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-  @EnvironmentObject var viewRouter: ViewRouter
+  @EnvironmentObject var session: SessionStore
   
-  @State var username: String = ""
-  @State var password: String = ""
+  func getUser () {
+    session.listen()
+  }
   
   var body: some View {
-    switch viewRouter.currentRoute {
-    case .signUpView:
-      SignUpView()
-    case .signInView:
-      SignInView()
-    case .homeView:
-      TabsView()
-    }
+    Group {
+      if(session.session != nil) {
+        TabsView()
+      } else {
+        LoginView()
+      }
+    }.onAppear { self.getUser() }
+    
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView().environmentObject(ViewRouter())
+    ContentView().environmentObject(SessionStore(session: User.default))
   }
 }
-
-

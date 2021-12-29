@@ -10,7 +10,7 @@ import Firebase
 
 @main
 struct NookbookApp: App {
-  @StateObject var viewRouter = ViewRouter()
+  @StateObject var session = SessionStore()
   
   init() {
     FirebaseApp.configure()
@@ -18,7 +18,7 @@ struct NookbookApp: App {
   
   var body: some Scene {
     WindowGroup {
-      ContentView().environmentObject(viewRouter)
+      ContentView().environmentObject(session)
     }
   }
 }
