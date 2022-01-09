@@ -9,18 +9,18 @@ import Foundation
 
 struct User {
   var uid: String
-  var email: String?
-  var displayName: String?
+  var email: String
+  var idToken: String
   
   static let `default` = Self(
     uid: "478454",
-    displayName: "Eric Horodyski",
-    email: "eric@ionic.io"
+    email: "eric@ionic.io",
+    idToken: "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFkMmE2YTZhNDcyYWNhNjNmM2FmNzU2NjIxZjM0"
   )
   
-  init(uid: String, displayName: String?, email: String?) {
+  init(uid: String, email: String, idToken: String) {
     self.uid = uid
     self.email = email
-    self.displayName = displayName
+    self.idToken = idToken
   }
 }

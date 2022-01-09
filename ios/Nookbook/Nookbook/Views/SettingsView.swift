@@ -7,16 +7,18 @@
 
 import SwiftUI
 
-struct UserView: View {
+struct SettingsView: View {
   @EnvironmentObject var session: SessionStore
+  
+  @ObservedObject var viewModel = SettingsViewModel()
   
   @State var processing: Bool = false
   @State var name: String = Island.default.name
+  @State var fruit: Fruit = .Apples
   
   var body: some View {
     NavigationView {
       ZStack {
-        Color("BackgroundColor").edgesIgnoringSafeArea(.all).ignoresSafeArea()
         VStack{
           List {
             if let user = session.session {
@@ -24,7 +26,7 @@ struct UserView: View {
                 HStack {
                   Text("Email:").fontWeight(.semibold)
                   Spacer()
-                  Text(user.email ?? "")
+                  Text(user.email)
                 }
                 HStack {
                   Text("ID:").fontWeight(.semibold)
@@ -33,28 +35,34 @@ struct UserView: View {
                 }
               }
             }
-            if Island.default != nil {
-              Section(header: Text("Island Information")) {
-                HStack {
-                  Text("Island Name:").fontWeight(.semibold)
-                  TextField("Island Name", text: $name)
-   
-                  
-                }
-                HStack() {
-                  Text("Native Fruit:").fontWeight(.semibold)
-                  Spacer()
-                  Text(Island.default.fruit.description)
+            Section(header: Text("Island Information")) {
+              HStack {
+                Text("Island Name:").fontWeight(.semibold)
+                Spacer()
+                TextField("Island Name", text: $name)
+                
+                
+              }
+              
+              
+              Section {
+                Picker("Native Fruit", selection: $fruit) {
+                  ForEach(Fruit.allCases, id: \.self) { value in
+                    Text(value.localizedName).tag(value)
+                  }
                 }
               }
+              
+              
+              
+              
             }
-          }.onAppear {
-            UITableView.appearance().backgroundColor = .clear
           }
         }
         .listStyle(GroupedListStyle())
         .navigationTitle("Settings")
         .toolbar {
+          
           Button(action: {
             self.processing = true
             let success = session.signOut()
@@ -63,7 +71,6 @@ struct UserView: View {
             }
           }) {
             Text("Sign Out")
-              .disabled(processing)
           }
         }
       }
@@ -73,6 +80,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
   static var previews: some View {
-    UserView().environmentObject(SessionStore(session: User.default))
+    SettingsView().environmentObject(SessionStore(session: User.default))
   }
 }

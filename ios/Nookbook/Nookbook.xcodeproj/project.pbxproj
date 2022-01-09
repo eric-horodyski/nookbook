@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07309667277E63A600438B4D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 07309666277E63A600438B4D /* FirebaseAuth */; };
+		07309669277E63A600438B4D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 07309668277E63A600438B4D /* FirebaseFirestore */; };
+		0730966B277E63A600438B4D /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 0730966A277E63A600438B4D /* FirebaseRemoteConfig */; };
 		07E64792277391D50050B585 /* NookbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E64791277391D50050B585 /* NookbookApp.swift */; };
 		07E64794277391D50050B585 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E64793277391D50050B585 /* ContentView.swift */; };
 		07E64796277391D70050B585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07E64795277391D70050B585 /* Assets.xcassets */; };
@@ -14,14 +17,14 @@
 		07E647A32775207B0050B585 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E647A22775207B0050B585 /* LoginView.swift */; };
 		07E647AA277526600050B585 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E647A9277526600050B585 /* TabsView.swift */; };
 		07E647AC2776D6F30050B585 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07E647AB2776D6F30050B585 /* GoogleService-Info.plist */; };
-		07E647AF2776D7B40050B585 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 07E647AE2776D7B40050B585 /* FirebaseAuth */; };
 		07E6480A277B98AA0050B585 /* InputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E64809277B98AA0050B585 /* InputFields.swift */; };
 		07E6480C277B9C9A0050B585 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E6480B277B9C9A0050B585 /* Buttons.swift */; };
 		07E6480E277BA6530050B585 /* PartialViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E6480D277BA6530050B585 /* PartialViews.swift */; };
 		07E64810277BAFC80050B585 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E6480F277BAFC80050B585 /* SessionStore.swift */; };
 		07E64812277BB06A0050B585 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E64811277BB06A0050B585 /* User.swift */; };
-		07E64816277CCB250050B585 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E64815277CCB250050B585 /* UserView.swift */; };
+		07E64816277CCB250050B585 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E64815277CCB250050B585 /* SettingsView.swift */; };
 		07E64818277CF4860050B585 /* Island.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E64817277CF4860050B585 /* Island.swift */; };
+		07E6481C277E5CC20050B585 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E6481B277E5CC20050B585 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +41,9 @@
 		07E6480D277BA6530050B585 /* PartialViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialViews.swift; sourceTree = "<group>"; };
 		07E6480F277BAFC80050B585 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		07E64811277BB06A0050B585 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		07E64815277CCB250050B585 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		07E64815277CCB250050B585 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		07E64817277CF4860050B585 /* Island.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Island.swift; sourceTree = "<group>"; };
+		07E6481B277E5CC20050B585 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,18 +51,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07E647AF2776D7B40050B585 /* FirebaseAuth in Frameworks */,
+				0730966B277E63A600438B4D /* FirebaseRemoteConfig in Frameworks */,
+				07309667277E63A600438B4D /* FirebaseAuth in Frameworks */,
+				07309669277E63A600438B4D /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07309662277E5FD900438B4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		07E64785277391D50050B585 = {
 			isa = PBXGroup;
 			children = (
 				07E64790277391D50050B585 /* Nookbook */,
 				07E6478F277391D50050B585 /* Products */,
+				07309662277E5FD900438B4D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,11 +88,12 @@
 			isa = PBXGroup;
 			children = (
 				07E64808277B98900050B585 /* Components */,
-				07E64802277B89980050B585 /* State */,
+				07E64802277B89980050B585 /* Repositories */,
 				07E64801277B87DD0050B585 /* Views */,
 				07E64800277B87D50050B585 /* ViewModels */,
 				07E647FF277B87CD0050B585 /* Models */,
 				07E647AB2776D6F30050B585 /* GoogleService-Info.plist */,
+				07E6480F277BAFC80050B585 /* SessionStore.swift */,
 				07E64791277391D50050B585 /* NookbookApp.swift */,
 				07E64793277391D50050B585 /* ContentView.swift */,
 				07E64795277391D70050B585 /* Assets.xcassets */,
@@ -107,6 +122,7 @@
 		07E64800277B87D50050B585 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				07E6481B277E5CC20050B585 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -116,17 +132,16 @@
 			children = (
 				07E647A22775207B0050B585 /* LoginView.swift */,
 				07E647A9277526600050B585 /* TabsView.swift */,
-				07E64815277CCB250050B585 /* UserView.swift */,
+				07E64815277CCB250050B585 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		07E64802277B89980050B585 /* State */ = {
+		07E64802277B89980050B585 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				07E6480F277BAFC80050B585 /* SessionStore.swift */,
 			);
-			path = State;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		07E64808277B98900050B585 /* Components */ = {
@@ -156,7 +171,9 @@
 			);
 			name = Nookbook;
 			packageProductDependencies = (
-				07E647AE2776D7B40050B585 /* FirebaseAuth */,
+				07309666277E63A600438B4D /* FirebaseAuth */,
+				07309668277E63A600438B4D /* FirebaseFirestore */,
+				0730966A277E63A600438B4D /* FirebaseRemoteConfig */,
 			);
 			productName = Nookbook;
 			productReference = 07E6478E277391D50050B585 /* Nookbook.app */;
@@ -187,7 +204,7 @@
 			);
 			mainGroup = 07E64785277391D50050B585;
 			packageReferences = (
-				07E647AD2776D7B40050B585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				07309665277E63A600438B4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 07E6478F277391D50050B585 /* Products */;
 			projectDirPath = "";
@@ -223,10 +240,11 @@
 				07E64794277391D50050B585 /* ContentView.swift in Sources */,
 				07E647AA277526600050B585 /* TabsView.swift in Sources */,
 				07E6480E277BA6530050B585 /* PartialViews.swift in Sources */,
-				07E64816277CCB250050B585 /* UserView.swift in Sources */,
+				07E64816277CCB250050B585 /* SettingsView.swift in Sources */,
 				07E647A32775207B0050B585 /* LoginView.swift in Sources */,
 				07E64792277391D50050B585 /* NookbookApp.swift in Sources */,
 				07E64818277CF4860050B585 /* Island.swift in Sources */,
+				07E6481C277E5CC20050B585 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,21 +451,31 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		07E647AD2776D7B40050B585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		07309665277E63A600438B4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
+				minimumVersion = 8.10.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		07E647AE2776D7B40050B585 /* FirebaseAuth */ = {
+		07309666277E63A600438B4D /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 07E647AD2776D7B40050B585 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 07309665277E63A600438B4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		07309668277E63A600438B4D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07309665277E63A600438B4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		0730966A277E63A600438B4D /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07309665277E63A600438B4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

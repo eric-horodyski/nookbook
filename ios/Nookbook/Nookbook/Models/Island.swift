@@ -6,23 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
-enum Fruit: CustomStringConvertible {
-  case Apples
-  case Cherries
-  case Oranges
-  case Peaches
-  case Pears
+enum Fruit: String, Equatable, CaseIterable {
+  case Apples = "Apples"
+  case Cherries = "Cherries"
+  case Oranges = "Oranges"
+  case Peaches = "Peaches"
+  case Pears = "Pears"
   
-  var description: String {
-    switch self {
-    case .Apples: return "Apples"
-    case .Cherries: return "Cherries"
-    case .Oranges: return "Oranges"
-    case .Peaches: return "Peaches"
-    case .Pears: return "Pears"
-    }
-  }
+  var localizedName: LocalizedStringKey { LocalizedStringKey(rawValue) }
 }
 
 struct Island {

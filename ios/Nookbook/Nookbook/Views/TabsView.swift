@@ -22,25 +22,26 @@ struct TabsView: View {
   
   var body: some View {
     TabView(selection: $selectedTab) {
-      UserView()
+      SettingsView()
       .tag(0)
       .tabItem {
         Text("Home")
         Image(systemName: "leaf.circle.fill")
       }
-      UserView()
+      SettingsView()
       .tag(1)
       .tabItem {
         Text("Recipes")
-        Image(systemName: "books.vertical.circle.fill")
+        Image("IconRecipes")
+          .renderingMode(.template)
       }
-      UserView()
+      SettingsView()
       .tag(2)
       .tabItem {
         Text("Villagers")
         Image(systemName: "person.2.crop.square.stack.fill")
       }
-      UserView()
+      SettingsView()
       .tag(3)
       .tabItem {
         Text("Settings")
