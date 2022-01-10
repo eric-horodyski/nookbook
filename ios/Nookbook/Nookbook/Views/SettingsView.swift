@@ -19,32 +19,15 @@ struct SettingsView: View {
   var body: some View {
     NavigationView {
       ZStack {
+        Color("BackgroundColor").ignoresSafeArea()
         VStack{
           List {
-            if let user = session.session {
-              Section(header: Text("User Details")) {
-                HStack {
-                  Text("Email:").fontWeight(.semibold)
-                  Spacer()
-                  Text(user.email)
-                }
-                HStack {
-                  Text("ID:").fontWeight(.semibold)
-                  Spacer()
-                  Text(user.uid)
-                }
-              }
-            }
             Section(header: Text("Island Information")) {
               HStack {
                 Text("Island Name:").fontWeight(.semibold)
                 Spacer()
                 TextField("Island Name", text: $name)
-                
-                
               }
-              
-              
               Section {
                 Picker("Native Fruit", selection: $fruit) {
                   ForEach(Fruit.allCases, id: \.self) { value in
@@ -52,17 +35,13 @@ struct SettingsView: View {
                   }
                 }
               }
-              
-              
-              
-              
             }
+          }.onAppear {
+            UITableView.appearance().backgroundColor = .clear
           }
         }
         .listStyle(GroupedListStyle())
-        .navigationTitle("Settings")
         .toolbar {
-          
           Button(action: {
             self.processing = true
             let success = session.signOut()
@@ -74,7 +53,7 @@ struct SettingsView: View {
           }
         }
       }
-    }
+    }.navigationViewStyle(StackNavigationViewStyle())
   }
 }
 

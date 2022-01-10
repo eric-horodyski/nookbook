@@ -9,6 +9,11 @@ import SwiftUI
 import Firebase
 import Combine
 
+struct CustomTokenResponse: Decodable {
+  let jwt: String
+  let apiKey: String
+}
+
 class SessionStore: ObservableObject {
   var didChange = PassthroughSubject<SessionStore, Never>()
   @Published var session: User? { didSet { self.didChange.send(self)}}
@@ -20,18 +25,21 @@ class SessionStore: ObservableObject {
   
   func listen() {
     handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-      if let user = user {
-        user.getIDTokenForcingRefresh(true) { (idToken, error) in
-          if let idToken = idToken {
-            print(idToken)
-            self.getAdditionalAuthData(idToken: idToken)
-            self.session = User(uid: user.uid, email: user.email!, idToken: idToken)
-          } else {
-            self.session = nil
-          }
-        }
-      } else {
+      guard let user = user else {
         self.session = nil
+        return
+      }
+      user.getIDTokenForcingRefresh(true) { (idToken, error) in
+        guard let idToken = idToken else {
+          self.session = nil
+          return
+        }
+        self.getAdditionalAuthData(idToken: idToken) { (token) in
+          guard let token = token else {
+            return
+          }
+          self.session = User(uid: user.uid, email: user.email!, token: token.jwt, apiKey: token.apiKey)
+        }
       }
     }
   }
@@ -60,7 +68,7 @@ class SessionStore: ObservableObject {
     }
   }
   
-  func getAdditionalAuthData(idToken: String) {
+  func getAdditionalAuthData(idToken: String, withCompletion completion: @escaping(CustomTokenResponse?) -> Void) {
     guard let url = URL(string: "https://nookbook-auth.herokuapp.com/authorize") else {
       return
     }
@@ -68,25 +76,17 @@ class SessionStore: ObservableObject {
     request.addValue("Bearer \(idToken)", forHTTPHeaderField: "Authorization")
     request.httpMethod = "GET"
     
-    let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-      if let data = data {
-        do{
-                //here dataResponse received from a network request
-                let jsonResponse = try JSONSerialization.jsonObject(with:
-                                       data, options: [])
-                print(jsonResponse) //Response result
-             } catch let parsingError {
-                print("Error", parsingError)
-           }
+    let task = URLSession.shared.dataTask(with: request) { (data, _, _) -> Void in
+      guard let data = data else {
+        DispatchQueue.main.async { completion(nil) }
+        return
       }
-      
+      let wrapper = try? JSONDecoder().decode(CustomTokenResponse.self, from: data)
+      DispatchQueue.main.async { completion(wrapper) }
     }
-        task.resume()
+    task.resume()
   }
 }
 
 
-struct TestResponse: Decodable {
-  let jwt: String
-  let apiKey: String
-}
+

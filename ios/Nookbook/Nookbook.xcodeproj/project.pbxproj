@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07055CEC278CDFAC00C9EB5E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07055CEB278CDFAB00C9EB5E /* HomeView.swift */; };
 		07309667277E63A600438B4D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 07309666277E63A600438B4D /* FirebaseAuth */; };
 		07309669277E63A600438B4D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 07309668277E63A600438B4D /* FirebaseFirestore */; };
 		0730966B277E63A600438B4D /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 0730966A277E63A600438B4D /* FirebaseRemoteConfig */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07055CEB278CDFAB00C9EB5E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		07E6478E277391D50050B585 /* Nookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E64791277391D50050B585 /* NookbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NookbookApp.swift; sourceTree = "<group>"; };
 		07E64793277391D50050B585 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				07E647A22775207B0050B585 /* LoginView.swift */,
 				07E647A9277526600050B585 /* TabsView.swift */,
 				07E64815277CCB250050B585 /* SettingsView.swift */,
+				07055CEB278CDFAB00C9EB5E /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				07E64812277BB06A0050B585 /* User.swift in Sources */,
 				07E6480C277B9C9A0050B585 /* Buttons.swift in Sources */,
+				07055CEC278CDFAC00C9EB5E /* HomeView.swift in Sources */,
 				07E6480A277B98AA0050B585 /* InputFields.swift in Sources */,
 				07E64810277BAFC80050B585 /* SessionStore.swift in Sources */,
 				07E64794277391D50050B585 /* ContentView.swift in Sources */,
