@@ -23,7 +23,7 @@ struct TabsView: View {
   var body: some View {
     ZStack {
       TabView(selection: $selectedTab) {
-        HomeView()
+        HomeView(apiKey: session.session!.apiKey)
         .tag(0)
         .tabItem {
           Text("Home")

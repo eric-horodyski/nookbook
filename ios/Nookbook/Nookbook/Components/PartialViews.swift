@@ -34,3 +34,14 @@ struct NBError: View {
       .cornerRadius(8.0)
   }
 }
+
+struct NBNavigationBarLeading: View {
+  var body: some View {
+    HStack {
+      Image("Logo")
+        .resizable()
+        .scaledToFit()
+      Spacer()
+    }
+  }
+}
