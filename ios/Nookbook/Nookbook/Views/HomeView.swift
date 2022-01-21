@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+  @EnvironmentObject var router: TabsRouter
   @ObservedObject var viewModel: HomeViewModel
   
   init(apiKey: String) {
@@ -16,52 +17,84 @@ struct HomeView: View {
   
   var body: some View {
     GeometryReader { metrics in
-      NavigationView{
-        ZStack {
-          Color("BackgroundColor").ignoresSafeArea()
+      ZStack {
+        Color("BackgroundColor").ignoresSafeArea()
+        HStack(alignment: .top) {
           VStack(alignment: .leading) {
-            NBHeading(label: "Today's Events")
-            ScrollView(.horizontal) {
-              HStack(spacing: 15) {
-                ForEach(viewModel.events, id: \.self) { event in
-                  NBEventCard(event: event, width: metrics.size.width * 0.9)
-                }
-                .padding()
-              }
-            }
-            
-            
-            
+            NBTodaysEvents(metrics: metrics, viewModel: viewModel)
+            FavoriteVillagers
             Spacer()
           }
-          .navigationBarItems(leading: NBNavigationBarLeading())
-          
-        }.onAppear {
-          viewModel.fetchEvents()
         }
       }
     }
   }
+  
+  var FavoriteVillagers: some View {
+    VStack {
+      Text("Favorite Villagers")
+        .font(.title)
+        .bold()
+        .padding([.bottom])
+      Button(action: {
+        router.currentTab = .villagers
+      }) {
+        Text("Let's make some friends")
+      }
+    }.padding()
+  }
+  
+  
 }
 
-struct NBEventCard: View {
-  var event: Event
-  var width: CGFloat
+
+
+struct NBTodaysEvents: View {
+  var metrics: GeometryProxy
+  var viewModel: HomeViewModel
   
+  init(metrics: GeometryProxy, viewModel: HomeViewModel) {
+    self.metrics = metrics
+    self.viewModel = viewModel
+   
+  }
+  
+
   var body: some View {
-    
-    ZStack {
-      Color.white
-        .cornerRadius(8.0)
-      Text(event.event)
+    VStack(alignment: .leading) {
+      VStack(alignment: .leading) {
+        Text("Northern Hemisphere")
+          .font(.subheadline)
+        NBDateTime()
+      }
+      .padding([.top, .horizontal])
+      
+      if(viewModel.events.isEmpty) {
+        HStack(alignment: .center) {
+          Spacer()
+          Text("There are no events on the island today.")
+          Spacer()
+        }.padding()
+        
+        
+      } else {
+        ScrollView(.horizontal) {
+          HStack(spacing: 1) {
+            ForEach(viewModel.events, id: \.self) { event in
+              NBEventCard(event: event, width: metrics.size.width * 0.9)
+            }
+          }
+        }
+      }
+    }.onAppear {
+      viewModel.fetchEvents()
     }
-    .frame(width: width, height: 200)
-    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 0)
   }
 }
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     HomeView(apiKey: User.default.apiKey)
+      .environmentObject(TabsRouter())
   }
 }

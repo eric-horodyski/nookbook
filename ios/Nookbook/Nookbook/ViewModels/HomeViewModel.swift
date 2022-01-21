@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject {
   
   init(apiKey: String) {
     self.apiKey = apiKey
-    self.events = [Event.default]
+    self.events = []
   }
   
   func fetchEvents() {

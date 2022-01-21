@@ -21,3 +21,12 @@ struct NBButtonStyle: ButtonStyle {
 }
 
 
+struct NBTabItem: View {
+  var label: String
+  var image: String
+  
+  var body: some View {
+    Text(label)
+    Image(image).renderingMode(.template)
+  }
+}

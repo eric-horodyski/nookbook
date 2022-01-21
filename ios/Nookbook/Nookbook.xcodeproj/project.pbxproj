@@ -11,6 +11,9 @@
 		07309667277E63A600438B4D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 07309666277E63A600438B4D /* FirebaseAuth */; };
 		07309669277E63A600438B4D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 07309668277E63A600438B4D /* FirebaseFirestore */; };
 		0730966B277E63A600438B4D /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 0730966A277E63A600438B4D /* FirebaseRemoteConfig */; };
+		0778AF3E2799E23000CD9928 /* VillagersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778AF3D2799E23000CD9928 /* VillagersView.swift */; };
+		0778AF412799E80300CD9928 /* TabsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778AF402799E80300CD9928 /* TabsRouter.swift */; };
+		0778AF432799FCB700CD9928 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778AF422799FCB700CD9928 /* RecipesView.swift */; };
 		07933DA4278E2C450002FE11 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07933DA3278E2C450002FE11 /* HomeViewModel.swift */; };
 		07933DA6278E2C5E0002FE11 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07933DA5278E2C5E0002FE11 /* Event.swift */; };
 		07933DA8278F53770002FE11 /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07933DA7278F53770002FE11 /* Containers.swift */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		07055CEB278CDFAB00C9EB5E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0778AF3D2799E23000CD9928 /* VillagersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillagersView.swift; sourceTree = "<group>"; };
+		0778AF402799E80300CD9928 /* TabsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsRouter.swift; sourceTree = "<group>"; };
+		0778AF422799FCB700CD9928 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		07933DA3278E2C450002FE11 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		07933DA5278E2C5E0002FE11 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		07933DA7278F53770002FE11 /* Containers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Containers.swift; sourceTree = "<group>"; };
@@ -77,6 +83,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0778AF3F2799E7DD00CD9928 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				07E6480F277BAFC80050B585 /* SessionStore.swift */,
+				0778AF402799E80300CD9928 /* TabsRouter.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		07E64785277391D50050B585 = {
 			isa = PBXGroup;
 			children = (
@@ -97,13 +112,12 @@
 		07E64790277391D50050B585 /* Nookbook */ = {
 			isa = PBXGroup;
 			children = (
+				0778AF3F2799E7DD00CD9928 /* Shared */,
 				07E64808277B98900050B585 /* Components */,
-				07E64802277B89980050B585 /* Repositories */,
 				07E64801277B87DD0050B585 /* Views */,
 				07E64800277B87D50050B585 /* ViewModels */,
 				07E647FF277B87CD0050B585 /* Models */,
 				07E647AB2776D6F30050B585 /* GoogleService-Info.plist */,
-				07E6480F277BAFC80050B585 /* SessionStore.swift */,
 				07E64791277391D50050B585 /* NookbookApp.swift */,
 				07E64793277391D50050B585 /* ContentView.swift */,
 				07E64795277391D70050B585 /* Assets.xcassets */,
@@ -146,15 +160,10 @@
 				07E647A9277526600050B585 /* TabsView.swift */,
 				07E64815277CCB250050B585 /* SettingsView.swift */,
 				07055CEB278CDFAB00C9EB5E /* HomeView.swift */,
+				0778AF3D2799E23000CD9928 /* VillagersView.swift */,
+				0778AF422799FCB700CD9928 /* RecipesView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		07E64802277B89980050B585 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		07E64808277B98900050B585 /* Components */ = {
@@ -250,8 +259,10 @@
 			files = (
 				07E64812277BB06A0050B585 /* User.swift in Sources */,
 				07933DA8278F53770002FE11 /* Containers.swift in Sources */,
+				0778AF432799FCB700CD9928 /* RecipesView.swift in Sources */,
 				07E6480C277B9C9A0050B585 /* Buttons.swift in Sources */,
 				07055CEC278CDFAC00C9EB5E /* HomeView.swift in Sources */,
+				0778AF3E2799E23000CD9928 /* VillagersView.swift in Sources */,
 				07E6480A277B98AA0050B585 /* InputFields.swift in Sources */,
 				07933DA6278E2C5E0002FE11 /* Event.swift in Sources */,
 				07E64810277BAFC80050B585 /* SessionStore.swift in Sources */,
@@ -259,6 +270,7 @@
 				07E647AA277526600050B585 /* TabsView.swift in Sources */,
 				07E6480E277BA6530050B585 /* PartialViews.swift in Sources */,
 				07E64816277CCB250050B585 /* SettingsView.swift in Sources */,
+				0778AF412799E80300CD9928 /* TabsRouter.swift in Sources */,
 				07933DAA278F62520002FE11 /* Text.swift in Sources */,
 				07933DA4278E2C450002FE11 /* HomeViewModel.swift in Sources */,
 				07E647A32775207B0050B585 /* LoginView.swift in Sources */,

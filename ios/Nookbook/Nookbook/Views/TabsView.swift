@@ -9,53 +9,55 @@ import SwiftUI
 
 struct TabsView: View {  
   @EnvironmentObject var session: SessionStore
+  @EnvironmentObject var router: TabsRouter
   
-  private enum Tab: Hashable {
-    case home
-    case recipes
-    case villagers
-    case user
-    // home (misc items for sale), recipes, villagers, items, user
+  init() {
+    UITabBar.appearance().backgroundColor = UIColor(named: "BackgroundColor")
   }
   
-  @State private var selectedTab: Tab = .home
-  
   var body: some View {
-    ZStack {
-      TabView(selection: $selectedTab) {
+    TabView(selection: $router.currentTab) {
+      NavigationView {
         HomeView(apiKey: session.session!.apiKey)
-        .tag(0)
-        .tabItem {
-          Text("Home")
-          Image("IconHome").renderingMode(.template)
-        }
-        SettingsView()
-        .tag(1)
-        .tabItem {
-          Text("Recipes")
-          Image("IconRecipe").renderingMode(.template)
-        }
-        SettingsView()
-        .tag(2)
-        .tabItem {
-          Text("Villagers")
-          Image("IconVillagers").renderingMode(.template)
-        }
-        SettingsView()
-        .tag(3)
-        .tabItem {
-          Text("More")
-          Image("IconMore").renderingMode(.template)
-        }
-      }.onAppear {
-        UITabBar.appearance().backgroundColor = UIColor(named: "BackgroundColor")
+          .navigationTitle("Dashboard")
       }
+      .tag(Tab.dashboard)
+      .tabItem { NBTabItem(label: "Dashboard", image: "IconHome") }
+      .navigationViewStyle(StackNavigationViewStyle())
+      NavigationView {
+        RecipesView()
+          .navigationTitle("Recipes")
+      }
+      .tag(Tab.recipes)
+      .tabItem { NBTabItem(label: "Recipes", image: "IconRecipe") }
+      .navigationViewStyle(StackNavigationViewStyle())
+      NavigationView {
+        VillagersView()
+          .navigationTitle("Villagers")
+      }
+      .tag(Tab.villagers)
+      .tabItem { NBTabItem(label: "Villagers", image: "IconVillagers") }
+      .navigationViewStyle(StackNavigationViewStyle())
+      NavigationView {
+        SettingsView()
+          .navigationTitle("Settings")
+          .toolbar {
+            Button(action: { session.signOut() }) {
+              Text("Sign Out")
+            }
+          }
+      }
+      .tag(Tab.settings)
+      .tabItem { NBTabItem(label: "More", image: "IconMore") }
+      .navigationViewStyle(StackNavigationViewStyle())
     }
   }
 }
 
 struct TabsView_Previews: PreviewProvider {
   static var previews: some View {
-    TabsView().environmentObject(SessionStore(session: User.default))
+    TabsView()
+      .environmentObject(SessionStore(session: User.default))
+      .environmentObject(TabsRouter())
   }
 }
